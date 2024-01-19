@@ -4,6 +4,8 @@
 #include<string>
 #include<sstream>
 #include<filesystem>
+#include <format>
+
 namespace fs = std::filesystem;
 
 struct item{
@@ -58,7 +60,7 @@ void readFolder(const fs::path& path){
         //Get item bool directory?
         bool isDirectory = entry.is_directory();
         //Get item last change time
-        std::cout<<entry.last_write_time()
+        std::cout<<std::format("File write time is: {}\n",entry.last_write_time())<<'\n';
     }
     //All item that is not a folder get to the front
     //Print all item that is not a folder
